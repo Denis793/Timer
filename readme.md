@@ -1,4 +1,5 @@
 # ⏱️ React Timer App
+
 <p align="center">
   <a href="https://timer-app-dztp.onrender.com/" target="_blank">
     <img src="https://img.shields.io/badge/View%20Project-Click%20Here-blue?style=for-the-badge" alt="View Project">
@@ -9,7 +10,8 @@
 
 ## 🖼️ Screenshot
 <div align="center">
-  <img src="https://github.com/Denis793/Market/blob/main/app/img/screens/screen-1.png" alt="View click" height="auto" width="100%">
+  <img src="https://github.com/Denis793/timer-app/blob/main/src/img/screen_timer-1.png" alt="View click" height="auto" width="47%">
+  <img src="https://github.com/Denis793/timer-app/blob/main/src/img/screen_timer-2.png" alt="View click" height="auto" width="47%">
 </div>
 
 ---
