@@ -10,8 +10,8 @@
 
 ## 🖼️ Screenshot
 <div align="center">
-  <img src="https://github.com/Denis793/timer-app/blob/main/src/img/screen_timer-1.png" alt="View click" height="auto" width="100%">
-  <img src="https://github.com/Denis793/timer-app/blob/main/src/img/screen_timer-2.png" alt="View click" height="auto" width="100%">
+  <img src="https://github.com/Denis793/timer-app/blob/main/src/img/screen_timer-1.png" alt="View click" height="auto" width="47%">
+  <img src="https://github.com/Denis793/timer-app/blob/main/src/img/screen_timer-2.png" alt="View click" height="auto" width="47%">
 </div>
 
 ---
