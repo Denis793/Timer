@@ -7,7 +7,7 @@ const Stopwatch = () => {
   return (
     <div className="timer-container">
       <h1>{timeFormatted}</h1>
-      <p>Number of component renders: {renderCount}</p>
+      
       <div className="buttons">
         <button onClick={toggle}>{isRunning ? 'Pause' : 'Start'}</button>
         <button onClick={reset}>Reset</button>
