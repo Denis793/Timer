@@ -49,9 +49,6 @@ h1 {
   font-size: 1rem;
   text-align: center;
   transition: border-color 0.3s ease;
-  -webkit-appearance: auto;
-     -moz-appearance: auto;
-          appearance: auto;
 }
 
 .inputs input:focus {

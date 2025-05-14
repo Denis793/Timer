@@ -6,7 +6,7 @@ const Countdown = () => {
   const [inputMinutes, setInputMinutes] = useState(0);
   const [inputSeconds, setInputSeconds] = useState(0);
 
-  const { timeFormatted, isRunning, toggle, reset: countdownReset, setNewTime, alarmRef } = useCountdown(0);
+  const { timeFormatted, isRunning, toggle, reset: countdownReset, setNewTime, alarmRef } = useCountdown(0); // початковий час 0
 
   const handleStart = () => {
     const totalTimeInMs = (inputMinutes * 60 + inputSeconds) * 1000;
