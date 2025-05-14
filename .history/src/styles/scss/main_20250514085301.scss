@@ -136,10 +136,6 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 1rem;
-
-  @media screen and (max-width: 420px) {
-    margin: 1rem;
-  }
 }
 
 .mode-switch button {

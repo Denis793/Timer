@@ -16,14 +16,44 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   min-width: 240px;
-  width: 70%;
+  width: 80%;
   max-width: 400px;
+}
+@media screen and (max-width: 420px) {
+  .timer-container {
+    padding: 1rem;
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 20px;
+}
+@media screen and (max-width: 420px) {
+  .timer-box {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
 }
 
 h1 {
   font-size: 3rem;
-  margin-bottom: 1.5rem;
+  margin: 1rem;
   color: #333;
+}
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 1rem;
+  }
 }
 
 .inputs {
@@ -39,6 +69,11 @@ h1 {
   font-size: 1rem;
   color: #555;
 }
+@media screen and (max-width: 420px) {
+  .inputs label {
+    font-size: 0.8rem;
+  }
+}
 
 .inputs input {
   width: 80px;
@@ -53,6 +88,11 @@ h1 {
      -moz-appearance: auto;
           appearance: auto;
 }
+@media screen and (max-width: 420px) {
+  .inputs input {
+    font-size: 0.8rem;
+  }
+}
 
 .inputs input:focus {
   border-color: #74ebd5;
@@ -66,16 +106,28 @@ h1 {
   gap: 1rem;
   margin-top: 1.5rem;
 }
+@media screen and (max-width: 420px) {
+  .buttons {
+    margin: 0.2rem;
+  }
+}
 
 .buttons button {
   background-color: #4caf50;
   color: white;
   border: none;
   padding: 0.7rem 1.5rem;
+  width: 7rem;
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+@media screen and (max-width: 420px) {
+  .buttons button {
+    font-size: 0.5rem;
+    width: 5rem;
+  }
 }
 
 .buttons button:hover {
@@ -94,16 +146,28 @@ h1 {
   justify-content: center;
   gap: 1rem;
 }
+@media screen and (max-width: 420px) {
+  .mode-switch {
+    margin: 1rem;
+  }
+}
 
 .mode-switch button {
   background-color: #2196f3;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
+  width: 8rem;
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+@media screen and (max-width: 420px) {
+  .mode-switch button {
+    font-size: 0.5rem;
+    width: 5rem;
+  }
 }
 
 .mode-switch button:hover {

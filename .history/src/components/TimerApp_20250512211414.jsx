@@ -9,7 +9,7 @@ const TimerApp = () => {
     <div className="timer-container">
       <div className="mode-switch">
         <button onClick={() => setMode('stopwatch')}>Stopwatch</button>
-        <button onClick={() => setMode('countdown')}>Timer</button>
+        <button onClick={() => setMode('countdown')}>Countdown</button>
       </div>
       {mode === 'stopwatch' ? <Stopwatch /> : <Countdown />}
     </div>
