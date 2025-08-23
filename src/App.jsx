@@ -1,5 +1,5 @@
 import React from 'react';
-import TimerApp from './components/TimerApp';
+import { TimerApp } from './components/TimerApp';
 
 function App() {
   return <TimerApp />;

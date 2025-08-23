@@ -1,0 +1,45 @@
+@use '@/styles/variables' as *;
+
+.stopwatch-card {
+  width: 360px;
+  background: $card-bg;
+  color: $text-main;
+  border-radius: 28px;
+  padding: 24px 24px 18px;
+  margin: auto;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+
+  .app-title {
+    margin: 0 0 12px;
+    text-align: center;
+    color: $text-muted;
+    font: 600 20px/1.2 $font-ui;
+    opacity: 0.9;
+  }
+  .time-readout {
+    margin-top: 10px;
+    text-align: center;
+    color: #b7d3ff;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  &::after {
+    content: '';
+    display: block;
+    height: 22px;
+    margin-top: 14px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0));
+    opacity: 0.25;
+  }
+}
+
+// ===== Shared: disabled state =====
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none !important;
+  transform: none !important;
+}

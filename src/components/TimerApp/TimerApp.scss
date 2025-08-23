@@ -1,0 +1,165 @@
+@use '@/styles/variables' as *;
+
+.timer-container {
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, $bg-grad-from, $bg-grad-to);
+  font-family: $font-mono;
+}
+
+.mode-switch {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &.active,
+    &:hover {
+      background: #4cafef;
+    }
+  }
+}
+
+/* Saved Times блок (належить до TimerApp) */
+.saved-times {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 22px;
+  background: #101112;
+  border-radius: 14px;
+  padding: 12px;
+
+  .saved-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0;
+      color: $text-muted;
+      font: 600 14px/1.2 $font-ui;
+    }
+    .clear-all {
+      border: none;
+      background: #ff4d6d;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 6px 10px;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(0.95);
+      }
+    }
+  }
+
+  .muted {
+    margin: 8px 2px 10px;
+    color: #7c838b;
+    font-size: 13px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      border-radius: 10px;
+      background: #0c0d0e;
+      border: 1px solid $border-dark;
+
+      .record-main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+
+        .name.editable {
+          flex: 1;
+          min-width: 0;
+          color: #e6edf3;
+          font: 600 14px/1.2 ui-sans-serif, system-ui;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          cursor: text;
+          border-bottom: 1px dashed transparent;
+          &:hover {
+            border-bottom-color: #3b82f6;
+          }
+        }
+
+        .edit-input {
+          flex: 1;
+          background: #121316;
+          border: 1px solid #2a2e33;
+          color: #e6edf3;
+          border-radius: 8px;
+          padding: 6px 8px;
+          font: 600 14px/1.2 ui-sans-serif, system-ui;
+        }
+
+        .val {
+          color: #e6edf3;
+          white-space: nowrap;
+          font: 600 14px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+        }
+
+        .btn.small.ok {
+          margin-left: 6px;
+          height: 28px;
+          padding: 0 10px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: 700;
+          background: $ok;
+          color: #fff;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+          &:hover {
+            filter: brightness(0.95);
+          }
+        }
+      }
+
+      .row-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        .remove-one {
+          width: 28px;
+          height: 28px;
+          border: none;
+          border-radius: 8px;
+          background: #2a2d33;
+          color: #cfd6dd;
+          cursor: pointer;
+          &:hover {
+            background: #3a3e46;
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,40 +5,37 @@ export const useStopwatch = () => {
   const [elapsedTime, setElapsedTime] = useState(0);
   const startTimeRef = useRef(null);
   const intervalRef = useRef(null);
-  const renderCount = useRef(0);
-
-  useEffect(() => {
-    renderCount.current += 1;
-  });
 
   useEffect(() => {
     if (isRunning) {
       startTimeRef.current = Date.now() - elapsedTime;
       intervalRef.current = setInterval(() => {
         setElapsedTime(Date.now() - startTimeRef.current);
-      }, 10);
+      }, 16);
     } else {
       clearInterval(intervalRef.current);
     }
     return () => clearInterval(intervalRef.current);
   }, [isRunning]);
 
-  const toggle = useCallback(() => setIsRunning((prev) => !prev), []);
-
+  const toggle = useCallback(() => setIsRunning((p) => !p), []);
   const reset = useCallback(() => {
     setElapsedTime(0);
     setIsRunning(false);
   }, []);
 
-  const minutes = String(Math.floor(elapsedTime / 60000)).padStart(2, '0');
-  const seconds = String(Math.floor((elapsedTime % 60000) / 1000)).padStart(2, '0');
-  const milliseconds = String(Math.floor((elapsedTime % 1000) / 10)).padStart(2, '0');
+  const mm = Math.floor(elapsedTime / 60000);
+  const ss = Math.floor((elapsedTime % 60000) / 1000);
+  const cs = Math.floor((elapsedTime % 1000) / 10);
 
   return {
-    timeFormatted: `${minutes}:${seconds}:${milliseconds}`,
+    timeFormatted: `${String(mm).padStart(2, '0')}:${String(ss).padStart(2, '0')}:${String(cs).padStart(2, '0')}`,
     isRunning,
     toggle,
     reset,
-    renderCount: renderCount.current,
+
+    hoursValue: (elapsedTime / 3600000) % 24,
+    minutesValue: (elapsedTime / 60000) % 60,
+    secondsValue: (elapsedTime / 1000) % 60,
   };
 };

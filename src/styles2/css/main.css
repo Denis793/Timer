@@ -1,0 +1,315 @@
+@charset "UTF-8";
+.timer-container {
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #1d1f21, #2c2f33);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.timer-container .mode-switch {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.timer-container .mode-switch button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.timer-container .mode-switch button.active, .timer-container .mode-switch button:hover {
+  background: #4cafef;
+}
+
+.stopwatch-card {
+  width: 360px;
+  background: #141516;
+  color: #e9eef4;
+  border-radius: 28px;
+  padding: 24px 24px 18px;
+  margin: auto;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+.stopwatch-card .app-title {
+  margin: 0 0 12px;
+  text-align: center;
+  color: #cfd6dd;
+  font: 600 20px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  opacity: 0.9;
+}
+.stopwatch-card .time-readout {
+  margin-top: 10px;
+  text-align: center;
+  color: #b7d3ff;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+.stopwatch-card::after {
+  content: "";
+  display: block;
+  height: 22px;
+  margin-top: 14px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0));
+  opacity: 0.25;
+}
+
+.dial {
+  display: grid;
+  place-items: center;
+  /* цифри/насічки не перекривають перетягування крапок */
+}
+.dial svg {
+  display: block;
+}
+.dial .dial-bg {
+  fill: #0f1011;
+}
+.dial .ring {
+  fill: none;
+  stroke: #1f2124;
+  stroke-width: 12;
+}
+.dial .ring--outer {
+  stroke-width: 12;
+}
+.dial .ring--mid {
+  stroke-width: 12;
+}
+.dial .ring--inner {
+  stroke-width: 12;
+}
+.dial .ring-prog {
+  fill: none;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.dial .ring-prog--hours {
+  stroke: #7aa7ff;
+  stroke-width: 12;
+}
+.dial .ring-prog--minutes {
+  stroke: #ff5c8a;
+  stroke-width: 12;
+}
+.dial .ring-prog--seconds {
+  stroke: #88d7f4;
+  stroke-width: 12;
+}
+.dial .dot {
+  fill: #e6e9ee;
+}
+.dial .dot--hours {
+  fill: #b9d1ff;
+}
+.dial .dot--minutes {
+  fill: #ffd1de;
+}
+.dial .dot--seconds {
+  fill: #a7e4ff;
+}
+.dial .dial-ticks line {
+  stroke: #2b2e33;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.dial .dial-numbers text {
+  fill: #7a828b;
+  font: 600 12px/1 ui-sans-serif, system-ui;
+  text-anchor: middle;
+}
+.dial .dial-ticks,
+.dial .dial-numbers {
+  pointer-events: none;
+}
+
+.controls {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.controls .ctrl-btn {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #e5e7eb;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.15), 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s ease, filter 0.2s ease, background 0.2s ease;
+}
+.controls .ctrl-btn:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+.controls .ctrl-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+.controls .ctrl-btn--primary {
+  background: #ff3d7a;
+  color: #fff;
+}
+.controls .ctrl-btn img {
+  width: 28px;
+  height: 28px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+/* Вирівнювання: якщо кнопок дві — Play рівно по центру */
+.controls.controls--two {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+}
+
+.controls.controls--two > :first-child {
+  justify-self: start;
+}
+
+.controls.controls--two > :nth-child(2) {
+  justify-self: center;
+}
+
+.saved-times {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 22px;
+  background: #101112;
+  border-radius: 14px;
+  padding: 12px;
+}
+.saved-times .saved-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.saved-times .saved-head h3 {
+  margin: 0;
+  color: #cfd6dd;
+  font: 600 14px/1.2 system-ui;
+}
+.saved-times .saved-head .clear-all {
+  border: none;
+  background: #ff4d6d;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.saved-times .saved-head .clear-all:hover {
+  filter: brightness(0.95);
+}
+.saved-times .muted {
+  margin: 8px 2px 10px;
+  color: #7c838b;
+  font-size: 13px;
+}
+.saved-times ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.saved-times ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  background: #0c0d0e;
+  border: 1px solid #1e2125;
+}
+.saved-times ul li .record-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.saved-times ul li .record-main .name.editable {
+  flex: 1;
+  min-width: 0;
+  color: #e6edf3;
+  font: 600 14px/1.2 ui-sans-serif, system-ui;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: text;
+  border-bottom: 1px dashed transparent;
+}
+.saved-times ul li .record-main .name.editable:hover {
+  border-bottom-color: #3b82f6;
+}
+.saved-times ul li .record-main .edit-input {
+  flex: 1;
+  background: #121316;
+  border: 1px solid #2a2e33;
+  color: #e6edf3;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font: 600 14px/1.2 ui-sans-serif, system-ui;
+}
+.saved-times ul li .record-main .val {
+  color: #e6edf3;
+  white-space: nowrap;
+  font: 600 14px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.saved-times ul li .record-main .btn.small.ok {
+  margin-left: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  background: #22c55e;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.saved-times ul li .record-main .btn.small.ok:hover {
+  filter: brightness(0.95);
+}
+.saved-times ul li .row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.saved-times ul li .row-actions .remove-one {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: #2a2d33;
+  color: #cfd6dd;
+  cursor: pointer;
+}
+.saved-times ul li .row-actions .remove-one:hover {
+  background: #3a3e46;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none !important;
+  transform: none !important;
+}/*# sourceMappingURL=main.css.map */
