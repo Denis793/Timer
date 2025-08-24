@@ -11,4 +11,11 @@ export default defineConfig({
       '@components': path.resolve(__dirname, 'src/components'),
     },
   },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['src/setupTests.js'],
+    css: true,
+    globals: true,
+    restoreMocks: true,
+  },
 });

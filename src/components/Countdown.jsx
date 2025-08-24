@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useCountdown } from '../hooks/useCountdown';
 import { CircleButton } from './ui/CircleButton';
 import { ControlsRow } from './ui/ControlsRow';
-import TimeSetterDial from './TimeSetterDial';
+import { TimeSetterDial } from './TimeSetterDial';
 import alarmSound from '@/assets/sound/alarm.wav';
 import resetIcon from '@/assets/img/icons/reset.png';
 import playIcon from '@/assets/img/icons/play.png';

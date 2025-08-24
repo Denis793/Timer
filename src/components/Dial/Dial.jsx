@@ -51,7 +51,7 @@ export function Dial({ size = 260, ticks = 60, showNumbers = true, rings = [], d
       } catch {}
     }
     move(e, key);
-    e.preventDefault(); // блокуємо нативний скрол/зум
+    e.preventDefault();
   };
 
   const endDrag = (e) => {
@@ -75,7 +75,7 @@ export function Dial({ size = 260, ticks = 60, showNumbers = true, rings = [], d
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
         onPointerCancel={endDrag}
-        style={{ touchAction: 'none' }} // <— ключ для мобільних
+        style={{ touchAction: 'none' }}
       >
         <circle cx={cx} cy={cy} r={outerRadius + 8} className="dial-bg" />
 

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { Dial } from '@/components/Dial';
+import { Dial } from './Dial';
 
-function TimeSetterDial({
+export function TimeSetterDial({
   hours = 0,
   minutes = 0,
   seconds = 0,
@@ -52,11 +52,8 @@ function TimeSetterDial({
   );
 
   const handleRingChange = (key, val) => {
-    if (!onChange) return;
-    onChange({ hours, minutes, seconds, [key]: val });
+    onChange?.({ hours, minutes, seconds, [key]: val });
   };
 
   return <Dial rings={rings} disabled={isRunning} onRingChange={handleRingChange} />;
 }
-
-export default TimeSetterDial;

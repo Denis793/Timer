@@ -1,1 +1,1 @@
-export { Dial } from './Dial';
+export { Dial } from './Dial.jsx';
