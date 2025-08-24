@@ -3,10 +3,10 @@ import { useStopwatch } from '../hooks/useStopwatch';
 import { CircularDial } from './CircularDial';
 import { CircleButton } from './ui/CircleButton';
 import { ControlsRow } from './ui/ControlsRow';
-import resetIcon from '../assets/icons/reset.png';
-import playIcon from '../assets/icons/play.png';
-import pauseIcon from '../assets/icons/pause.png';
-import flagIcon from '../assets/icons/flag.png';
+import resetIcon from '@/assets/img/icons/reset.png';
+import playIcon from '@/assets/img/icons/play.png';
+import pauseIcon from '@/assets/img/icons/pause.png';
+import flagIcon from '@/assets/img/icons/flag.png';
 
 export const Stopwatch = ({ onSave, onRunningChange }) => {
   const { timeFormatted, isRunning, toggle, reset, hoursValue, minutesValue, secondsValue } = useStopwatch();

@@ -3,10 +3,10 @@ import { useCountdown } from '../hooks/useCountdown';
 import { CircleButton } from './ui/CircleButton';
 import { ControlsRow } from './ui/ControlsRow';
 import TimeSetterDial from './TimeSetterDial';
-import alarmSound from '../assets/alarm.wav';
-import resetIcon from '../assets/icons/reset.png';
-import playIcon from '../assets/icons/play.png';
-import pauseIcon from '../assets/icons/pause.png';
+import alarmSound from '@/assets/sound/alarm.wav';
+import resetIcon from '@/assets/img/icons/reset.png';
+import playIcon from '@/assets/img/icons/play.png';
+import pauseIcon from '@/assets/img/icons/pause.png';
 
 const pad2 = (n) => String(n).padStart(2, '0');
 
