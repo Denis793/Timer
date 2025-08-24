@@ -43,3 +43,9 @@ button:disabled {
   filter: none !important;
   transform: none !important;
 }
+
+.dial svg,
+.dial .ring-prog,
+.dial .dot {
+  touch-action: none;
+}

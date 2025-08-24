@@ -27,13 +27,6 @@ export function Dial({ size = 260, ticks = 60, showNumbers = true, rings = [], d
     return `${filled} ${C - filled}`;
   };
 
-  const startDrag = (key) => (e) => {
-    if (disabled) return;
-    setDragKey(key);
-    move(e, key);
-    e.preventDefault();
-  };
-
   const move = (e, key = dragKey) => {
     if (!key || disabled) return;
     const svg = svgRef.current;
@@ -48,7 +41,28 @@ export function Dial({ size = 260, ticks = 60, showNumbers = true, rings = [], d
     onRingChange?.(key, newVal);
   };
 
-  const endDrag = () => setDragKey(null);
+  const startDrag = (key) => (e) => {
+    if (disabled) return;
+    setDragKey(key);
+    const svg = svgRef.current;
+    if (svg && typeof e.pointerId === 'number') {
+      try {
+        svg.setPointerCapture(e.pointerId);
+      } catch {}
+    }
+    move(e, key);
+    e.preventDefault(); // блокуємо нативний скрол/зум
+  };
+
+  const endDrag = (e) => {
+    const svg = svgRef.current;
+    if (svg && typeof e?.pointerId === 'number') {
+      try {
+        svg.releasePointerCapture(e.pointerId);
+      } catch {}
+    }
+    setDragKey(null);
+  };
 
   return (
     <div className="dial">
@@ -60,6 +74,8 @@ export function Dial({ size = 260, ticks = 60, showNumbers = true, rings = [], d
         onPointerMove={move}
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
+        onPointerCancel={endDrag}
+        style={{ touchAction: 'none' }} // <— ключ для мобільних
       >
         <circle cx={cx} cy={cy} r={outerRadius + 8} className="dial-bg" />
 
@@ -92,7 +108,11 @@ export function Dial({ size = 260, ticks = 60, showNumbers = true, rings = [], d
                   cy={cy}
                   r={r.radius}
                   className={`ring-prog ${r.progClass}`}
-                  style={{ strokeDasharray: dash(r.value % r.max, r.max, r.radius), pointerEvents: pointer }}
+                  style={{
+                    strokeDasharray: dash(r.value % r.max, r.max, r.radius),
+                    pointerEvents: pointer,
+                    touchAction: 'none',
+                  }}
                   onPointerDown={r.interactive && !disabled ? startDrag(r.key) : undefined}
                 />
               )}
@@ -102,7 +122,7 @@ export function Dial({ size = 260, ticks = 60, showNumbers = true, rings = [], d
                   r="6"
                   cx={cx + r.radius * Math.cos(a)}
                   cy={cy + r.radius * Math.sin(a)}
-                  style={{ pointerEvents: pointer }}
+                  style={{ pointerEvents: pointer, touchAction: 'none' }}
                   onPointerDown={r.interactive && !disabled ? startDrag(r.key) : undefined}
                 />
               )}
