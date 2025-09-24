@@ -11,7 +11,7 @@
 ## 🖼️ Screenshot
 
 <div align="center">
-  <img src="https://github.com/Denis793/Timer/blob/main/src/assets/img/screens/Screenshot-1-Timer.png" alt="View click" height="auto" width="47%">
+  <img src="https://github.com/Denis793/Timer/blob/main/src/assets/img/screens/Screenshot-1-Timer.png" alt="View click" height="auto" width="100%">
 </div>
 
 ---
